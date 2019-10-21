@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+    logstash:
+#      restart: always
+      #基于一份 Dockerfile，在使用 up 启动之时执行构建任务，
+      #这个构建标签就是 build，它可以指定 Dockerfile 所在文件夹的路径
+      #这里就是找当前下的ELK文件夹
+      image: logstash:7.4.0
+      container_name: logstash
+      # 映射端口
+      ports:
+        - 5044:5044
+      volumes:
+        # logstash配置文件
+        - /home/ubuntu/test5/new_elk/logstash/config/logstash-sample.conf:/usr/share/logstash/pipeline/logstash.conf
+        - /home/ubuntu/test5/new_elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      logging:
+        options:
+          max-size: "2g"
+      environment:                #environment 和 Dockerfile 中的 ENV 指令一样会把变量一直保存在镜像、容器中，类似 docker run -e 的效果。设置容器的环境变量
+        - TZ=Asia/Shanghai        #这里设置容器的时区为亚洲上海，也就解决了容器通过compose编排启动的 时区问题！！！！解决了容器的时区问题！！

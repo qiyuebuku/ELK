@@ -1,0 +1,123 @@
+
+
+output {
+  if [fields][tag] == "error_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "error_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+
+  if [fields][tag] == "correct_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "correct_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+
+  if [fields][tag] == "timeout_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "timeout_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+  if [fields][tag] == "transfinite_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "transfinite_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+  if [fields][tag] == "user_code_error_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "user_code_error_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+  if [fields][tag] == "all_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "all_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+
+  if [fields][tag] == "vip_error_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "vip_error_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+
+  if [fields][tag] == "vip_correct_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "vip_correct_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+  if [fields][tag] == "vip_timeout_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "vip_timeout_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+  if [fields][tag] == "vip_transfinite_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "vip_transfinite_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+
+    }
+  }
+  if [fields][tag] == "vip_user_code_error_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "vip_user_code_error_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+    }
+  }
+  if [fields][tag] == "vip_all_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "vip_all_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+    }
+  }
+  if [fields][tag] == "ops_log" {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      manage_template => false
+      index => "ops_log-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+    }
+  }
+
+}

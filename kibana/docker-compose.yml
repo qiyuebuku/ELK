@@ -1,0 +1,11 @@
+version: '3'
+services:
+    kibana:
+      image: kibana:7.4.0
+      container_name: kibana
+
+      volumes:
+        - /home/ubuntu/test5/new_elk/kibana/config/kibana.yml:/opt/kibana/config/kibana.yml
+      # 映射端口
+      ports:
+        - 5601:5601

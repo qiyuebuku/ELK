@@ -1,0 +1,30 @@
+input {
+  beats {
+    port => 5044
+  }
+}
+
+
+input {
+  redis {
+    codec => plain
+    host => "106.53.6.170"
+    port => 6379
+    data_type => list
+    type = > "redis-data-A"
+    key => "listA"
+    db => 0
+    password => "0000"
+  }
+}
+
+input {
+    redis {
+        data_type => "list"
+        host => "106.53.6.170"
+        db => "1"
+        port => "6379"
+        key => "listA"
+        password => "0000"
+    }
+}
